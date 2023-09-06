@@ -16,33 +16,33 @@ const { createUser,profileUpdate} =UserAuth()
     const onSubmit = async (data) => {console.log(data)
       
         let {name,photo,email,password}=data;
-// let role="user"
-//      try {
-//       await createUser( email,password)
-//  await profileUpdate({
-//   displayName:name, photoURL: photo
-//  })
+let role="user"
+     try {
+      await createUser( email,password)
+ await profileUpdate({
+  displayName:name, photoURL: photo
+ })
 
-//  const res = await fetch("/api/user", 
-//  {
-//    method: "POST",
-//    headers: {
-//      "Content-type": "application/json",
-//    },
-//    body: JSON.stringify({name,email,photo,role}),
-//  });
+ const res = await fetch("/api/user", 
+ {
+   method: "POST",
+   headers: {
+     "Content-type": "application/json",
+   },
+   body: JSON.stringify({name,email,photo,role}),
+ });
 
-//  if (res.ok) {
-//   toast.success('Successfully created!');
-//          router.push('/')
+ if (res.ok) {
+  toast.success('Successfully created!');
+         router.push('/')
    
-//  } else {
-//    throw new Error("Failed to create a topic");
-//  }
+ } else {
+   throw new Error("Failed to create a topic");
+ }
 
-//      } catch (error) {
-//       alert(error)
-//      }
+     } catch (error) {
+      alert(error)
+     }
       
     
 
