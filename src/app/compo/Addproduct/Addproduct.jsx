@@ -2,6 +2,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from "next/navigation";
+import { Toaster, toast } from 'react-hot-toast';
 
 const Addproduct = () => {
     const router = useRouter();
@@ -22,7 +23,10 @@ try {
     });
 
     if (res.ok) {
-           
+           toast.success('added Product',{
+            duration: 4000,
+            position: 'top-center',
+           })
             router.refresh()
       
     } else {
@@ -63,7 +67,7 @@ try {
                                 <label className="label">
                                     <span className="label-text">price</span>
                                 </label>
-                                <input type="text" placeholder="price"  {...register("price", {
+                                <input type="number" placeholder="price"  {...register("price", {
                                     required: "price is required",
                                     validate: positiveNumberValidation
                                 })} className="input input-bordered" />
@@ -75,18 +79,12 @@ try {
                                 <label className="label">
                                     <span className="label-text">stock_quantity</span>
                                 </label>
-                                <input type="text" placeholder="stock_quantity"  {...register("stock_quantity", {
+                                <input type="number" placeholder="stock_quantity"  {...register("stock_quantity", {
                                     required: "stock_quantity is required",
                                     validate: positiveNumberValidation
                                 })} className="input input-bordered" />
                                 {errors.stock_quantity && <p className="text-error pt-1">{errors.stock_quantity.message}</p>}
                             </div>
-
-
-                         
-
-
-      
 
                             <div>
 
@@ -133,6 +131,7 @@ try {
 
                             <div className="form-control mt-6">
                                 <button className="btn btn-secondary">Submit</button>
+                                <Toaster></Toaster>
                             </div>
                         </form>
                     </div>

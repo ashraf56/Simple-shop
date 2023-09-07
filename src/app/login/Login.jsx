@@ -34,10 +34,29 @@ reset()
     let handleGoogle= async ()=>{
 
       try {
-        await googleLogin();
-    
-        router.push('/')
-        toast.success("log in success")
+      const {user}=  await googleLogin();
+        let role="user"
+        const res = await fetch("/api/user", 
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({name:user.displayName,email:user.email,photo:user.photoURL,role}),
+        });
+       
+        if (res.ok) {
+         toast.success('Successfully created!',{
+          duration:4000,
+          position:"top-center"
+         });
+                router.push('/')
+          
+        } else {
+          throw new Error("Failed to create a topic");
+        }
+       
+      
       } catch (error) {
         console.log(error);
       }

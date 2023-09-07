@@ -1,6 +1,7 @@
 'use client'
 import React from 'react';
 import { useRouter } from "next/navigation";
+import { Toaster, toast } from 'react-hot-toast';
 
 const Deletebut = ({id}) => {
     const router = useRouter();
@@ -10,6 +11,10 @@ const Deletebut = ({id}) => {
             method: "DELETE"
           })
 if (res.ok) {
+  toast.success('item successfully deleted',{
+    duration:4000,
+    position:"top-center"
+  })
     router.refresh()
 }
 
@@ -20,6 +25,7 @@ if (res.ok) {
     return (
         <button onClick={handleDElete}>
             DELETE
+            <Toaster></Toaster>
         </button>
     );
 };

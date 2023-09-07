@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 const EditProduct = ({id, product}) => {
     const router = useRouter();
     let {product_name,description ,price,category,stock_quantity}=product;
-console.log(product_name);
+
 
     const { register, handleSubmit, control, formState: { errors } } = useForm()
     const onSubmit = async(data) => {
