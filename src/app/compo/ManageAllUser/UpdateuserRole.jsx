@@ -2,6 +2,7 @@
 import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { Toaster, toast } from 'react-hot-toast';
 
 const UpdateuserRole = ({id,user}) => {
     const router =useRouter()
@@ -21,8 +22,10 @@ try {
     if (!res.ok) {
         throw new Error("Failed to update role");
       }
-
-     
+toast.success(" Successfully Changed",{
+    duration:4000,
+})
+     router.refresh()
       router.push('/dashboard/admin/usermanage')
 } catch (error) {
     console.log(error);
@@ -58,6 +61,7 @@ try {
 
                             <div className="form-control mt-6">
                                 <button className="btn btn-secondary">Save Change</button>
+                                <Toaster></Toaster>
                             </div>
                         </form>
                     </div>
