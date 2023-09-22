@@ -17,7 +17,7 @@ let getAdmins=async()=>{
       }
 }
 const AllADmins = async() => {
-let {admins}= await  getAdmins()
+let admins= await  getAdmins()
     return (
         <div className='bg-base-300'>
             <h1 className='text-center text-3xl uppercase font-bold p-4'>All Admins  DATA</h1>
