@@ -25,6 +25,10 @@ const Blog = async() => {
 <Link href={`/allitem/${i._id}`}>Detail</Link>
 
       </button>
+      <button className="btn">
+<Link href={`/homeblog/blog/${i._id}`}>Blog Detail</Link>
+
+      </button>
     </div>
   </div>
 </div>

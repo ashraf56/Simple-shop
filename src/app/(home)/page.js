@@ -1,3 +1,4 @@
+import AllADmins from "../compo/AllADmins";
 import Blog from "../compo/Home/Blog/Blog";
 import Header from "../compo/Home/Header/Header";
 import Slider from "../compo/Home/Slider/Slider";
@@ -8,6 +9,7 @@ export default function Home() {
       <Header/>
  <Blog></Blog>
 <Slider></Slider>
+<AllADmins></AllADmins>
     </main>
   )
 }

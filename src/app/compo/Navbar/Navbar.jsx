@@ -36,6 +36,9 @@ const LogOut = async()=>{
                 <Link href={'/login'}>LogIN</Link>
             </li>
             <li>
+                <Link href={'/homeblog'}>Blogs</Link>
+            </li>
+            <li>
                 <Link href={'/dashboard'}>Dashboard</Link>
             </li>
          
