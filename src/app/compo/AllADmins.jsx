@@ -17,13 +17,13 @@ let getAdmins=async()=>{
       }
 }
 const AllADmins = async() => {
-let {user}= await  getAdmins()
+let {admins}= await  getAdmins()
     return (
         <div className='bg-base-300'>
             <h1 className='text-center text-3xl uppercase font-bold p-4'>All Admins  DATA</h1>
             <div className='grid grid-cols-4 mx-auto p-10 container items-center justify-center gap-3 '>
                 {
-                    user.map(a  =>(
+                    admins.map( (a)  =>(
                         <div className="avatar justify-center " key={a._id}>
   <div className="w-24 rounded-xl">
     <Image src={a.photo}width={100} height={100}alt=''></Image>
