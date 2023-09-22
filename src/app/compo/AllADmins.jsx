@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import React from 'react';
 
-let getAdmins=async()=>{
+let getAdmins= async () =>{
     let apiURl=process.env.API_url
     try {
-        let res= await fetch(`${apiURl}/api/admins`,{
+        let res= await fetch(`${apiURl}/api/user/admins`,{
             cache:"no-store"
         })
         if (!res.ok) {
