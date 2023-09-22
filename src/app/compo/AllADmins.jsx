@@ -4,7 +4,7 @@ import React from 'react';
 let getAdmins=async()=>{
     let apiURl=process.env.API_url
     try {
-        let res= await fetch(`${apiURl}/api/user/admins`,{
+        let res= await fetch(`${apiURl}/api/admins`,{
             cache:"no-cache"
         })
         if (!res.ok) {
