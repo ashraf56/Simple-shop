@@ -1,5 +1,4 @@
 import React from 'react';
-
 const aboutpage = () => {
     return (
         <div>
@@ -7,5 +6,4 @@ const aboutpage = () => {
         </div>
     );
 };
-
 export default aboutpage;

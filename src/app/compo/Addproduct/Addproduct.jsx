@@ -3,50 +3,40 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from "next/navigation";
 import { Toaster, toast } from 'react-hot-toast';
-
 const Addproduct = () => {
     const router = useRouter();
-
-    const { register, handleSubmit, control,reset, formState: { errors } } = useForm()
-    const onSubmit = async(data) => {
-
-let {product_name,description,price,stock_quantity,category}=data
-
-try {
-    const res = await fetch("/api/products", 
-    {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (res.ok) {
-           toast.success('added Product',{
-            duration: 4000,
-            position: 'top-center',
-           })
-            router.refresh()
-      
-    } else {
-      throw new Error("Failed to create a topic");
-    }
-
-
-  } catch (error) {
-    console.log(error);
-  }
-  reset()
-
+    const { register, handleSubmit, control, reset, formState: { errors } } = useForm()
+    const onSubmit = async (data) => {
+        let { product_name, description, price, stock_quantity, category } = data
+        try {
+            const res = await fetch("/api/products",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-type": "application/json",
+                    },
+                    body: JSON.stringify(data),
+                });
+            if (res.ok) {
+                toast.success('added Product', {
+                    duration: 4000,
+                    position: 'top-center',
+                })
+                router.refresh()
+            } else {
+                throw new Error("Failed to create a topic");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+        reset()
     }
     const positiveNumberValidation = (value) => {
         return parseFloat(value) > 0 || "Please enter a valid  number";
     };
-
     return (
         <div>
-         <div className="hero min-h-screen ">
+            <div className="hero min-h-screen ">
                 <div className="hero-content flex-col ">
                     <div className="text-center ">
                         <h1 className="text-5xl font-bold ">Become a Donor!</h1>
@@ -58,11 +48,8 @@ try {
                                 <label className="label">
                                     <span className="label-text">Product name</span>
                                 </label>
-                                <input type="text" placeholder="product name" className="input input-bordered"  {...register("product_name")}  />
+                                <input type="text" placeholder="product name" className="input input-bordered"  {...register("product_name")} />
                             </div>
-
-                      
-                     
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">price</span>
@@ -73,8 +60,6 @@ try {
                                 })} className="input input-bordered" />
                                 {errors.price && <p className="text-error pt-1">{errors.price.message}</p>}
                             </div>
-
-                            
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">stock_quantity</span>
@@ -85,50 +70,37 @@ try {
                                 })} className="input input-bordered" />
                                 {errors.stock_quantity && <p className="text-error pt-1">{errors.stock_quantity.message}</p>}
                             </div>
-
                             <div>
-
-                           
-
                                 <div className='form-control'>
                                     <label className="label">
                                         <span className="label-text">Select Category</span>
                                     </label>
                                     <select className="select select-bordered w-full  "  {...register("category", { required: "Please select a gender" })}>
-                <option value="" selected>Select Category</option>
-  <option value="men_clothing">Mens Clothing</option>
-  <option value="women_clothing">Womens Clothing</option>
-  <option value="kids_clothing">Kids Clothing</option>
-  <option value="smartphones">Smartphones</option>
-  <option value="laptops">Laptops</option>
-  <option value="cameras">Cameras</option>
-  <option value="furniture">Furniture</option>
-  <option value="home_decor">Home Decor</option>
-  <option value="kitchen_appliances">Kitchen Appliances</option>
-  <option value="outdoor_gear">Outdoor Gear</option>
-  <option value="fitness_equipment">Fitness Equipment</option>
-  <option value="books">Books</option>
+                                        <option value="" selected>Select Category</option>
+                                        <option value="men_clothing">Mens Clothing</option>
+                                        <option value="women_clothing">Womens Clothing</option>
+                                        <option value="kids_clothing">Kids Clothing</option>
+                                        <option value="smartphones">Smartphones</option>
+                                        <option value="laptops">Laptops</option>
+                                        <option value="cameras">Cameras</option>
+                                        <option value="furniture">Furniture</option>
+                                        <option value="home_decor">Home Decor</option>
+                                        <option value="kitchen_appliances">Kitchen Appliances</option>
+                                        <option value="outdoor_gear">Outdoor Gear</option>
+                                        <option value="fitness_equipment">Fitness Equipment</option>
+                                        <option value="books">Books</option>
                                     </select>
                                     {errors.category && <p className="text-error pt-1">{errors.category.message}</p>}
                                 </div>
                             </div>
-
-
-
-
-                           <div className="form-control">
+                            <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">description</span>
                                 </label>
-                               
                                 <textarea className="textarea textarea-secondary" placeholder="description"
-                                 {...register("description")}
-                                
+                                    {...register("description")}
                                 ></textarea>
-
                             </div>
-                          
-
                             <div className="form-control mt-6">
                                 <button className="btn btn-secondary">Submit</button>
                                 <Toaster></Toaster>
@@ -136,9 +108,8 @@ try {
                         </form>
                     </div>
                 </div>
-            </div>     
+            </div>
         </div>
     );
 };
-
 export default Addproduct;

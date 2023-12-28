@@ -1,6 +1,5 @@
 import Blog from '@/app/compo/Home/Blog/Blog';
 import React from 'react';
-
 const homeBlog = () => {
     return (
         <div>
@@ -8,5 +7,4 @@ const homeBlog = () => {
         </div>
     );
 };
-
 export default homeBlog;

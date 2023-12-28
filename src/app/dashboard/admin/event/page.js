@@ -1,6 +1,5 @@
 import React from 'react';
 import AddEvent from '../AddEvent';
-
 const Event = () => {
     return (
         <div>
@@ -8,5 +7,4 @@ const Event = () => {
         </div>
     );
 };
-
 export default Event;

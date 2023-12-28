@@ -1,6 +1,5 @@
 import React from 'react';
 import Ap from './Ap';
-
 const page = () => {
     return (
         <div>
@@ -8,5 +7,4 @@ const page = () => {
         </div>
     );
 };
-
 export default page;

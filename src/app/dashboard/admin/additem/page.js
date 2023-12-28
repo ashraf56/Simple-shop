@@ -1,6 +1,5 @@
 import Addproduct from '@/app/compo/Addproduct/Addproduct';
 import React from 'react';
-
 const page = () => {
     return (
         <div>
@@ -8,5 +7,4 @@ const page = () => {
         </div>
     );
 };
-
 export default page;

@@ -1,6 +1,5 @@
 import React from 'react';
 import ManageAll from '../ManageAll';
-
 const ManageAllUser = () => {
     return (
         <div>
@@ -8,5 +7,4 @@ const ManageAllUser = () => {
         </div>
     );
 };
-
 export default ManageAllUser;

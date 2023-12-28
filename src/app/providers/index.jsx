@@ -1,14 +1,10 @@
 "use client";
 import { AuthcontextProvider } from '../context/Authcontext';
-
-const Provider = ({children}) => {
-
+const Provider = ({ children }) => {
     return (
-    <AuthcontextProvider>
+        <AuthcontextProvider>
             {children}
         </AuthcontextProvider >
-   ) 
-    
+    )
 };
-
 export default Provider;

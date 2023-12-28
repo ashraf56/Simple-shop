@@ -1,6 +1,5 @@
 import Alladmins from '@/app/compo/Alladmins/Alladmins';
 import React from 'react';
-
 const page = () => {
     return (
         <div>
@@ -8,5 +7,4 @@ const page = () => {
         </div>
     );
 };
-
 export default page;
