@@ -33,7 +33,7 @@ const Navbar = () => {
               <Link href={'/homeblog'}>Blogs</Link>
             </li>
             <li>
-              <Link href={'/dashboard'}>Dashboard</Link>
+             {user  && <Link href={'/dashboard'}>Dashboard</Link>}
             </li>
             <li>
              { user && <Link href={'/admins'}>admin</Link>}
