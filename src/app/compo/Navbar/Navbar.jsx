@@ -36,7 +36,7 @@ const Navbar = () => {
               <Link href={'/dashboard'}>Dashboard</Link>
             </li>
             <li>
-              <Link href={'/admins'}>admin</Link>
+             { user && <Link href={'/admins'}>admin</Link>}
             </li>
             <li>
               {user && <Link href={'/about'}>{user?.displayName}</Link>}
